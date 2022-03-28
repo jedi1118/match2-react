@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.c102454b.css",
-    "main.js": "/static/js/main.06a387d0.js",
-    "index.html": "/index.html",
-    "main.c102454b.css.map": "/static/css/main.c102454b.css.map",
-    "main.06a387d0.js.map": "/static/js/main.06a387d0.js.map"
+    "main.css": "/jedi1118/match2-react/static/css/main.c102454b.css",
+    "main.js": "/jedi1118/match2-react/static/js/main.06a387d0.js",
+    "index.html": "/jedi1118/match2-react/index.html",
+    "main.c102454b.css.map": "/jedi1118/match2-react/static/css/main.c102454b.css.map",
+    "main.06a387d0.js.map": "/jedi1118/match2-react/static/js/main.06a387d0.js.map"
   },
   "entrypoints": [
     "static/css/main.c102454b.css",
