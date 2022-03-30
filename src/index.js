@@ -68,9 +68,10 @@ class Match2 extends React.Component {
     } 
 }
 
+// eslint-disable-next-line no-extend-native
 Array.prototype.shuffle = function() {
     var i = this.length, j, temp;
-    if ( i == 0 ) return this;
+    if ( i === 0 ) return this;
     while ( --i ) {
         j = Math.floor( Math.random() * ( i + 1 ) );
         temp = this[i];
