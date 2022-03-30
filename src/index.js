@@ -2,16 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-console.log('#####');
-
 class Cell extends React.Component {
     // shouldComponentUpdate(nextProps, nextState) {
     //     console.log('@@@@@shouldComponentUpdate');
     //     return true;
     // }
     render () {
-        console.log('######', this.props);
-        return <button className={`${this.props.active?'active':'foo'} ${this.props.matched?'matched':''}`} onClick={this.props.handleClick.bind(this, this.props.idx)} >{this.props.value}</button>;
+        // console.log('######', this.props);
+        return <button className={`${this.props.active?'active':''} ${this.props.matched?'matched':''}`} onClick={this.props.handleClick.bind(this, this.props.idx)}>
+            <span className={`socks s${this.props.value}`}></span></button>;
     }
 }
 
@@ -23,14 +22,18 @@ class Match2 extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
     handleSquareReset(idx) {
-        console.log('handleSquareReset ', idx, this);
         const data = this.state.game.slice();
+        console.log('handleSquareReset ', idx, data[idx], this.state.selected);
         if(data[idx].active) {
             data[idx].active = false;
             this.setState({game: data});
         }
-        if(this.state.selected.length > 0) {// reset if only 1 selected when timeout is triggered
+        if(this.state.selected.length === 1) {// reset if only 1 selected when timeout is triggered
             this.setState({selected: []});
+        } else if (this.state.selected.length >= 2) {
+            console.log('####', this.state.selected);
+            const selected = this.state.selected.slice(2); 
+            this.setState({selected: selected});
         }
     }
     handleClick(idx) {
@@ -54,10 +57,10 @@ class Match2 extends React.Component {
             this.setState({ selected: selected });
         }
         this.setState({ game: data });
-    
+        console.log('handleClick :', this.state.game[idx], this.state.selected);
+
         if(data[idx].active) {// only need to clear when items are not matched
-            console.log('handleClick - needs reset', this.state.game[idx]);
-            setTimeout(this.handleSquareReset.bind(this, idx), 2000);
+            setTimeout(this.handleSquareReset.bind(this, idx), 1500);
         }
     }
     render () {
@@ -65,15 +68,45 @@ class Match2 extends React.Component {
     } 
 }
 
+Array.prototype.shuffle = function() {
+    var i = this.length, j, temp;
+    if ( i == 0 ) return this;
+    while ( --i ) {
+        j = Math.floor( Math.random() * ( i + 1 ) );
+        temp = this[i];
+        this[i] = this[j];
+        this[j] = temp;
+    }
+    return this;
+}
+
+
 const CELLS = [];
-for(let i = 0; i < 4; i++) {
+const SOCKS_LEN = 21;// number of socks in sprite
+const MAX_CELLS = 36;// 6 x 6 grid
+
+// setting up the game data:
+// create a list of socks, the value will be used for matching as well as icon
+let SOCKS = [];
+for (let i = 0; i < SOCKS_LEN; i++) {
+    SOCKS.push(i);
+}
+SOCKS.shuffle();// randomize
+for(let i = 0; i < 3; i++) {
+    SOCKS = SOCKS.slice(0, 18);// take first 18, as we only have 36 cells
+}
+SOCKS = SOCKS.concat(SOCKS);// double the icons
+SOCKS.shuffle();// randomize again
+// console.log('##########', SOCKS);
+
+for(let i = 0; i < MAX_CELLS; i++) {
     CELLS.push({
         idx: i,
-        value: i%2 === 0 ? 'A' : 'B',
+        value: SOCKS[i],
         matched: false, 
-        active: false,
-        // countDown: 2
+        active: false
     });
 }
+// init game
 ReactDOM.render(<Match2 cells={CELLS}/>, document.getElementById('root'));
 
