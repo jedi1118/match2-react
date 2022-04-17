@@ -15,4 +15,4 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 ### play the game
-at  [https://jedi1118.github.io/match2-react/]
+at https://jedi1118.github.io/match2-react/
