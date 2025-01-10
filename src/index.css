@@ -1,98 +1,13 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-#root {
-  width: 720px;
-  margin: auto;
-}
-#root button {
-  width: 90px;
-  height: 90px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  float: left;
-}
-#root button:nth-child(6n+1) {
-  clear: left;
-  display: block;;
-}
- 
-#root button.active .socks, #root button.matched .socks {
-  opacity: 1;
-}
-.socks {
-  opacity: 0;
-  background: #fff url('./socks.png') no-repeat;
-  width: 50px;
-  height: 85px;
-  display: block;
-  margin: auto;
-  background-size: 206px;
-}
-/* sprite row 1 */
-.s0 {
-  background-position: 0 -1px;
-}
-.s1 {
-  background-position: -54px -1px;
-}
-.s2 {
-  background-position: -104px -1px;
-}
-.s3 {
-  background-position: -154px -1px;
-}
-/* sprite row 2 */
-.s4 {
-  background-position: 0 -84px;
-}
-.s5 {
-  background-position: -54px -84px;
-}
-.s6 {
-  background-position: -100px -84px;
-}
-.s7 {
-  background-position: -150px -84px;
-}
-/* sprite row 3 */
-.s8 {
-  background-position: -6px -172px;
-}
-.s9 {
-  background-position: -58px -172px;
-}
-.s10 {
-  background-position: -108px -172px;
-}
-.s11 {
-  background-position: -158px -172px;
-}
-/* sprite row 4 */
-.s12 {
-  background-position: -6px -269px;
-}
-.s13 {
-  background-position: -60px -269px;
-}
-.s14 {
-  background-position: -110px -269px;
-}
-.s15 {
-  background-position: -159px -269px;
-}
-/* sprite row 5 */
-.s16 {
-  background-position: -3px -355px;
-}
-.s17 {
-  background-position: -60px -355px;
-}
-.s18 {
-  background-position: -110px -355px;
-}
-.s19 {
-  background-position: -158px -355px;
-}
-/* sprite row 6 */
-.s20 {
-  background-position: -3px -437px;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }

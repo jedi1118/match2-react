@@ -1,0 +1,118 @@
+
+#root {
+    width: 720px;
+    margin: auto;
+  }
+  #root button {
+    width: 90px;
+    height: 90px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    float: left;
+    position: relative;
+  }
+  #root button:nth-child(6n+1) {
+    clear: left;
+    display: block;;
+  }
+   
+  #root button.active .socks, #root button.matched .socks {
+    opacity: 1;
+  }
+  .socks {
+    /* opacity: 0; */
+    background: #fff url('./socks.jpg') no-repeat;
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0;
+    background-size: 650px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+  }
+  /* sprite row 1 */
+  .s0 {
+    background-position: -20px -20px;
+  }
+  .s1 {
+    background-position: -150px -20px;
+  }
+  .s2 {
+    background-position: -275px -20px;
+  }
+  .s3 {
+    background-position: -410px -20px;
+  }
+  .s4 {
+    background-position: -540px -20px;
+  }
+  /* sprite row 2 */
+  .s5 {
+    background-position: -20px -150px;
+  }
+  .s6 {
+    background-position: -150px -150px;
+  }
+  .s7 {
+    background-position: -275px -150px;
+  }
+  .s8 {
+    background-position: -410px -150px;
+  }
+  .s9 {
+    background-position: -540px -150px;
+  }
+  /* sprite row 3 */
+  .s10 {
+    background-position: -20px -280px;
+  }
+  .s11 {
+    background-position: -150px -280px;
+  }
+  .s12 {
+    background-position: -275px -280px;
+  }
+  .s13 {
+    background-position: -410px -280px;
+  }
+  .s14 {
+    background-position: -540px -280px;
+  }
+  /* sprite row 4 */
+  .s15 {
+    background-position: -20px -410px;
+  }
+  .s16 {
+    background-position: -150px -410px;
+  }
+  .s17 {
+    background-position: -275px -410px;
+  }
+  .s18 {
+    background-position: -410px -410px;
+  }
+  .s19 {
+    background-position: -540px -410px;
+  }
+  /* sprite row 5 */
+  .s20 {
+    background-position: -20px -540px;
+  }
+  .s21 {
+    background-position: -150px -540px;
+  }
+  .s22 {
+    background-position: -275px -540px;
+  }
+  .s23 {
+    background-position: -410px -540px;
+  }
+  .s24 {
+    background-position: -540px -540px;
+  }
+
+
+
+  /* sprite row 6 */
