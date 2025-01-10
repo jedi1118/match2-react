@@ -5,7 +5,7 @@ import Cell from './Cell.js';
 import './Match2.css';
 
 function Match2() {
-    const {selected, setSelected, CELLS} = useContext(GameContext);
+    const {selected, setSelected, GameData} = useContext(GameContext);
 
     // constructor(props) {
     //     super(props);
@@ -55,6 +55,6 @@ function Match2() {
     //         setTimeout(this.handleSquareReset.bind(this, idx), 1500);
     //     }
     // }
-    return CELLS.map((item) => <Cell key={item.idx} index={item.idx}/>)
+    return GameData.map((item) => <Cell key={item.idx} index={item.idx}/>)
 }
 export default Match2;
