@@ -1,19 +1,22 @@
-import { React, useState, createContext } from 'react';
-import GameContext from './GameContext.js';
-import Match2 from './Match2.js';
-import GameData from './GameData.js';
+import { Provider } from 'react-redux'
+import { configureStore } from '@reduxjs/toolkit';
 
-// import logo from './logo.svg';
+import gameReducer from './gameReducer.js';
+import Match2 from './Match2.js';
 import './App.css';
 
-function App() {
-    const [selected, setSelected] = useState([]);
+const store = configureStore({
+    reducer: {
+        game: gameReducer,
+    }
+});
 
+function App() {
     return (
         <div className="App">
-            <GameContext.Provider value={{ selected, setSelected, GameData }}>
+            <Provider store={store}>
                 <Match2 />
-            </GameContext.Provider>
+            </Provider>
         </div>
     );
 }

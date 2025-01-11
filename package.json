@@ -4,9 +4,11 @@
   "private": true,
   "homepage": "https://jedi1118.github.io/match2-react",
   "dependencies": {
+    "@reduxjs/toolkit": "^2.5.0",
     "cra-template": "1.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^4.2.4"
   },
