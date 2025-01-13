@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/match2-react/static/css/main.e5d96f9f.css",
-    "main.js": "/match2-react/static/js/main.e583b2a7.js",
+    "main.css": "/match2-react/static/css/main.d32af953.css",
+    "main.js": "/match2-react/static/js/main.26206dba.js",
     "static/js/488.e991af79.chunk.js": "/match2-react/static/js/488.e991af79.chunk.js",
     "static/media/socks.jpg": "/match2-react/static/media/socks.72429473ca0ceacae1ed.jpg",
     "static/media/shoes.jpg": "/match2-react/static/media/shoes.6898256e6fcfc56428ce.jpg",
     "index.html": "/match2-react/index.html",
-    "main.e5d96f9f.css.map": "/match2-react/static/css/main.e5d96f9f.css.map",
-    "main.e583b2a7.js.map": "/match2-react/static/js/main.e583b2a7.js.map",
+    "main.d32af953.css.map": "/match2-react/static/css/main.d32af953.css.map",
+    "main.26206dba.js.map": "/match2-react/static/js/main.26206dba.js.map",
     "488.e991af79.chunk.js.map": "/match2-react/static/js/488.e991af79.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e5d96f9f.css",
-    "static/js/main.e583b2a7.js"
+    "static/css/main.d32af953.css",
+    "static/js/main.26206dba.js"
   ]
 }
