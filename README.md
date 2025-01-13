@@ -1,6 +1,6 @@
 ### play the game on git
-Kids loved matching socks on laundry day, and it's the inspiration of this game.
-at https://jedi1118.github.io/match2-react/
+Kids loved matching socks on laundry day, and it's the inspiration of this game.\
+play at https://jedi1118.github.io/match2-react/
 
 ## Available Scripts
 
