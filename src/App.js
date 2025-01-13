@@ -1,6 +1,5 @@
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit';
-
 import gameReducer from './gameReducer.js';
 import Match2 from './Match2.js';
 import './App.css';

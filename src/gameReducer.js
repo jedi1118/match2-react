@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import GameData from "./GameData";
-
+import initData from "./GameData";
 const gameSlice = createSlice({
     name: 'game',
     initialState: {// add some demo data
         selected: [],
-        gameData: GameData
+        gameData: initData('socks'),
+        theme: 'socks'
     },
     reducers: {
         selectCell: (state, data) => {
@@ -32,9 +32,15 @@ const gameSlice = createSlice({
             // call setTimeout in the dispatch code - in Cell.js
             const index = data.payload.index;
             state.gameData[index].active = false;
+        },
+        setTheme: (state, data) => {
+            state.theme = data.payload.theme;
+            state.selected = [];
+            state.gameData = initData(data.payload.theme)
+
         }
     }
 });
 
-export const { selectCell, resetCell } = gameSlice.actions;
+export const { selectCell, resetCell, setTheme } = gameSlice.actions;
 export default gameSlice.reducer;

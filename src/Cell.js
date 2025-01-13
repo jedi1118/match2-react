@@ -3,6 +3,7 @@ import { selectCell, resetCell } from './gameReducer.js'
 
 function Cell(props) {
     const gameData = useSelector(state => state.game.gameData);
+    const theme = useSelector(state => state.game.theme);
     const dispatch = useDispatch();
 
     function handleClick(index) {
@@ -16,7 +17,7 @@ function Cell(props) {
         <button title={`Cell ${props.index + 1}`}
             className={`${gameData[props.index].active ? 'active' : ''} ${gameData[props.index].matched ? 'matched' : ''}`}
             onClick={() => handleClick(props.index)}>
-            <span className={`socks s${gameData[props.index].value}`}></span>
+            <span className={`${theme} s${gameData[props.index].value}`}></span>
         </button>
     );
 }
