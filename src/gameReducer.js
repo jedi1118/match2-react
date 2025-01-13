@@ -5,14 +5,15 @@ const gameSlice = createSlice({
     initialState: {// add some demo data
         selected: [],
         gameData: initData('socks'),
-        theme: 'socks'
+        theme: 'socks',
+        clicks: 0
     },
     reducers: {
         selectCell: (state, data) => {
             // is already clicked, exit
             const index = data.payload.index;
             if (state.gameData[index].active) return;
-
+            state.clicks += 1;
             // add to the selected list
             state.selected.push(data);
             state.gameData[index].active = true;
@@ -36,8 +37,8 @@ const gameSlice = createSlice({
         setTheme: (state, data) => {
             state.theme = data.payload.theme;
             state.selected = [];
-            state.gameData = initData(data.payload.theme)
-
+            state.gameData = initData(data.payload.theme);
+            state.clicks = 0;
         }
     }
 });

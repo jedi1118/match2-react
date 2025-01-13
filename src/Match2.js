@@ -6,6 +6,8 @@ import './Match2.css';
 
 function Match2() {
     const gameData = useSelector(state => state.game.gameData);
+    const clicks = useSelector(state => state.game.clicks);
+
     const dispatch = useDispatch();
     // const [option, setOption] = useState('shoes');
 
@@ -24,6 +26,7 @@ function Match2() {
                     <option key='socks'>socks</option>
                     <option key='shoes'>shoes</option>
                 </select>
+                <span id="clicks">Clicks: {clicks}</span>
             </div>
             <div>
                 {gameData.map((item) => <Cell key={item.idx} index={item.idx} />)}

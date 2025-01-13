@@ -31,6 +31,10 @@
   margin-left: 10px;
 }
 
+#clicks {
+  margin-left: 20px;
+}
+
 #root button.active .socks,
 #root button.matched .socks,
 #root button.active .shoes,
