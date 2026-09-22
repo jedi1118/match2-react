@@ -1,14 +1,10 @@
-// eslint-disable-next-line no-extend-native
-Array.prototype.shuffle = function () {
-    var i = this.length, j, temp;
-    if (i === 0) return this;
-    while (--i) {
-        j = Math.floor(Math.random() * (i + 1));
-        temp = this[i];
-        this[i] = this[j];
-        this[j] = temp;
+export function shuffleArray(arr) {
+    const arrCopy = [...arr];
+    for (let i = arrCopy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arrCopy[i], arrCopy[j]] = [arrCopy[j], arrCopy[i]];
     }
-    return this;
+    return arrCopy;
 }
 
 const SOCKS_LEN = 25;// number of socks in sprite
@@ -24,12 +20,12 @@ function initData(theme) {
     for (let i = 0; i < len; i++) {
         data.push(i);
     }
-    data.shuffle();// randomize
+    data = shuffleArray(data);// randomize
     for (let i = 0; i < 3; i++) {
         data = data.slice(0, 18);// take first 18, as we only have 36 cells
     }
     data = data.concat(data);// double the icons
-    data.shuffle();// randomize again
+    data = shuffleArray(data);// randomize again
     let CELLS = [];
     for (let i = 0; i < MAX_CELLS; i++) {
         CELLS.push({
