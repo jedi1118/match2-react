@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 // import { useState } from 'react';
-import { selectCell, resetCell, setTheme } from './gameReducer.js'
+import { setTheme } from './gameReducer.js'
 import Cell from './Cell.js';
 import './Match2.css';
 
