@@ -7,6 +7,7 @@ import './Match2.css';
 function Match2() {
     const gameData = useSelector(state => state.game.gameData);
     const clicks = useSelector(state => state.game.clicks);
+    const won = useSelector(state => state.game.won);
 
     const dispatch = useDispatch();
     // const [option, setOption] = useState('shoes');
@@ -28,6 +29,11 @@ function Match2() {
                 </select>
                 <span id="clicks">Clicks: {clicks}</span>
             </div>
+            {won && (
+                <div style={{ textAlign: 'center', margin: '1rem 0' }}>
+                    🎉 You won! Click OK to start a new game.
+                </div>
+            )}
             <div>
                 {gameData.map((item) => <Cell key={item.idx} index={item.idx} />)}
             </div>

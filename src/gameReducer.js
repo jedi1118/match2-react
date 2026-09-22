@@ -6,39 +6,52 @@ const gameSlice = createSlice({
         selected: [],
         gameData: initData('socks'),
         theme: 'socks',
-        clicks: 0
+        clicks: 0,
+        comparing: false, // prevent new selections while two cells are being compared
+        won: false         // win flag when all pairs matched
     },
     reducers: {
         selectCell: (state, data) => {
-            // is already clicked, exit
             const index = data.payload.index;
-            if (state.gameData[index].active) return;
+            // ignore if already active, already matched, or currently comparing
+            if (state.gameData[index].active || state.gameData[index].matched || state.comparing) return;
             state.clicks += 1;
-            // add to the selected list
             state.selected.push(data);
             state.gameData[index].active = true;
 
             if (state.selected.length >= 2) {
                 const idx1 = state.selected.shift().payload.index;
                 const idx2 = state.selected.shift().payload.index;
+                state.comparing = true; // lock input while comparing
 
                 // check if pair is matched
                 if (state.gameData[idx1].value === state.gameData[idx2].value) {
-                    state.gameData[idx1].matched = state.gameData[idx2].matched = true;
+                    state.gameData[idx1].matched = true;
+                    state.gameData[idx2].matched = true;
                 }
             }
         },
         resetCell: (state, data) => {
-            // NOTE: instead of calling  setTimeout here - which we will lose reference to state,
-            // call setTimeout in the dispatch code - in Cell.js
             const index = data.payload.index;
             state.gameData[index].active = false;
+
+            // if both selected cells have been reset, unlock and check win
+            const allReset = state.selected.length === 0 && !state.comparing;
+            if (!allReset) return;
+
+            // check if all cells are matched (win condition)
+            const allMatched = state.gameData.every(cell => cell.matched);
+            if (allMatched) {
+                state.won = true;
+            }
         },
         setTheme: (state, data) => {
             state.theme = data.payload.theme;
             state.selected = [];
-            state.gameData = initData(data.payload.theme);
+            state.comparing = false;
+            state.won = false;
             state.clicks = 0;
+            state.gameData = initData(data.payload.theme);
         }
     }
 });
